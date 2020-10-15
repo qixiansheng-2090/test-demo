@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图书列表</title>
+    <link rel="stylesheet" href="bootstrap.css" type="text/css">
+</head>
+<body>
+<div class="container">
+    <div class="col-sm-offset-1 col-sm-12">
+        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">图书列表 &nbsp;&nbsp;&nbsp;<a href="#"><button type="button" class="btn btn-primary">新增</button></a></h3>
+
+    </div>
+    <div class="panel-body">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>图书名称</th>
+                <th>分类</th>
+                <th>价格</th>
+                <th>出版日期</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php
+            while ($rows=mysqli_fetch_object($result)){ ?>
+            <tr>
+            <td><?php echo $rows->id ?></td>
+            <td><?php echo $rows->name?></td>
+            <td><?php echo $rows->ccategory?></td>
+            <td><?php echo $rows->price?></td>
+            <td><?php echo $rows->publish_time?></td>
+            <td><a href="#"><button type="button" class="btn btn-info">编辑</button></a>
+                <a href="#"><button type="button" class="btn btn-danger">删除</button></a>
+            </td>
+            </tr>
+            <?php }
+            ?>
+            </tbody>
+        </table>
+        <p class="text-primary text-center">共计 <?php echo $number?>条</p>
+    </div>
+</div>
+</div>
+</div>
+
+</body>
+</html>
